@@ -11,6 +11,8 @@ Vue.use(Auth)
 
 //default route http
 Vue.http.options.root = 'http://localhost:8000'
+//mengirim token ke middleware laravel -> auth:api
+Vue.http.headers.common['Authorization'] = 'Bearer '+Vue.auth.getToken()
 
 Router.beforeEach(
 	(to,from,next) => {
