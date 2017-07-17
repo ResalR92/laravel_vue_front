@@ -1,27 +1,15 @@
 <template>
 	<div>
 		<h1>Feed</h1>
-		<ul>
-			<li v-for="product in products">
-				{{ product.name }} | {{ product.price }}
-			</li>
-		</ul>
+		<my-products></my-products>	
 	</div>
 </template>
 
 <script>
+	import Products from './product/Products.vue'
 	export default {
-		data() {
-			return {
-				products: []
-			}
-		},
-		created() {
-			this.$http.get('api/products')
-			.then(response => {
-						// console.log(response);
-						this.products = response.body
-					});
+		components: {
+			'my-products' : Products
 		}
 	}
 </script>
