@@ -40,8 +40,13 @@
 					closeOnConfirm: false
 				},
 				function(){
-				  	swal("Deleted!", "Your imaginary file has been deleted.", "success");
-				});
+					this.$http.delete('api/products/'+ this.product.id)
+						.then(response => {
+							console.log(response);
+				  			swal("Deleted!", "Your product has been deleted.", "success");
+						});
+				}.bind(this)
+				);
 			}
 		}
 	}
