@@ -18,6 +18,6 @@
 </template>
 <script>
 	export default {
-		props: ['product']
+		props: ['product','authenticatedUser']
 	}
 </script>

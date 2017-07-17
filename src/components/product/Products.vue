@@ -1,6 +1,10 @@
 <template>
 	<div class="row">
-		<my-product v-for="product in products" :product="product"></my-product>
+		<my-product 
+			v-for="product in products" 
+			:authenticatedUser="authenticatedUser"
+			:product="product">
+		</my-product>
 	</div>
 </template>
 
@@ -13,6 +17,12 @@
 				products: []
 			}
 		},
+		computed: {
+			authenticatedUser() {
+				return this.$auth.getAuthenticatedUser();
+			}
+		},
+
 		created() {
 			this.$http.get('api/products')
 			.then(response => {
