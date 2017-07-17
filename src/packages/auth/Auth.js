@@ -7,7 +7,7 @@ export default function(Vue) {
 		},
 		//get token
 		getToken() {
-			let storage = localStorage.getItem('token');
+			let token = localStorage.getItem('token');
 			let expiration = localStorage.getItem('expiration');
 
 			if(!token || ! expiration) {

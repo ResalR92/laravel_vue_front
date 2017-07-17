@@ -37,6 +37,8 @@
 					.then(response => {
 						console.log(response);
 						this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now());
+						//redirect to auth page
+						this.$router.push('/feed');
 					});
 					// .then(function(response) {
 					// 	console.log(response);
