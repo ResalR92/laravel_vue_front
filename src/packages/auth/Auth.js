@@ -7,9 +7,27 @@ export default function(Vue) {
 		},
 		//get token
 		getToken: () => {
+			let storage = localStorage.getItem('token');
+			let expiration = localStorage.getItem('expiration');
 
+			if(!token || ! expiration) {
+				return null;
+			}
+
+			if(Date.now() > parseInt(expiration)) {
+				this.destroyToken();
+				return null;
+			}
+			else{
+				return token;
+			}
 		},
-		//destroy token
+		//destroy token -> logout
+		destroyToken: () => {
+			localStorage.remove('token');
+			localStorage.remove('expiration');
+		},
+
 		//isAuthenticated
 		isAuthenticated: () => {
 			if(this.getToken()) {
