@@ -4,6 +4,7 @@
 			<img src="/asset/img/icon.png">
 
 			<div class="caption">
+				{{ product.user_id }}
 				<h3>{{ product.name }}</h3>
 				<p>{{ product.price }}</p>
 				<hr>
