@@ -1,5 +1,12 @@
 <template>
-	<h1>Feed</h1>
+	<div>
+		<h1>Feed</h1>
+		<ul>
+			<li v-for="product in products">
+				{{ product.name }} | {{ product.price }}
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -12,7 +19,8 @@
 		created() {
 			this.$http.get('api/products')
 			.then(response => {
-						console.log(response);
+						// console.log(response);
+						this.products = response.body
 					});
 		}
 	}
