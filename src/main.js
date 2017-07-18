@@ -5,9 +5,12 @@ import Router from './routes.js'
 import VueResource from 'vue-resource'
 //register packages globally
 import Auth from './packages/auth/Auth.js'
+//validasi vue.js
+import VeeValidate from 'vee-validate';
 
 Vue.use(VueResource)
 Vue.use(Auth)
+Vue.use(VeeValidate);
 
 //default route http
 Vue.http.options.root = 'http://localhost:8000'
