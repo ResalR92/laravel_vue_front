@@ -24,6 +24,13 @@
 							<label>Description:</label>
 							<textarea class="form-control" v-model="product.description"></textarea>
 						</div>
+						<!-- form upload file -->
+						<div class="form-group">
+							<label>Image</label>
+							<input type="file" class="form-control"
+								@change="imageChanged">	
+
+						</div>
 						<!-- memastikan semua form terisi divalidasi dengan v-show->logic -->
 						<input type="submit" 
 							value="Create" 
@@ -42,11 +49,22 @@
 				product: {
 					name: '',
 					price: 0,
-					description: ''
+					description: '',
+					image:''
 				}
 			}
 		},
 		methods: {
+			imageChanged(e) {
+				let fileReader = new FileReader();
+
+				fileReader.readAsDataURL(e.target.files[0]);
+
+				fileReader.onload = (e) => {
+					this.product.image = e.target.result;
+				}
+				console.log(this.product);//image base64 respresentation
+			},
 			create() {
 				//local language
 				this.$validator.updateDictionary({
