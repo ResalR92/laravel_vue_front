@@ -47,6 +47,10 @@
 				this.$http.get('api/products/'+this.$route.params.product)//parameter route.js->update->:product
 					.then(response => {
 						this.product = response.body;
+					})
+					.catch(response => {
+						//handling error locally
+						this.$router.push('/feed');
 					});
 			},
 
