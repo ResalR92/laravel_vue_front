@@ -1,7 +1,8 @@
 <template>
 	<div class="col-md-4">
 		<div class="thumbnail">
-			<img src="/asset/img/icon.png">
+			<img :src="'http://localhost:8000/img/'+product.image" class="img-responsive" v-if="product.image">
+			<img src="/asset/img/icon.png" v-else>
 
 			<div class="caption">
 				<h3>{{ product.name }}</h3>
