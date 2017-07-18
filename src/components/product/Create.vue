@@ -48,6 +48,18 @@
 		},
 		methods: {
 			create() {
+				//local language
+				this.$validator.updateDictionary({
+					'id' : {
+						attributes: {
+							name: 'nama',
+							price: 'harga'
+						}
+					}
+				});
+
+				this.$validator.setLocale('id');
+
 				this.$validator.validateAll().then(()=>{
 					this.$http.post('api/products',this.product)
 						.then(response => {
